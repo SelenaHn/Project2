@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Book Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #98FB98; /* Light green background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Book Reviews</h1>
+        <img src="{{ url_for('static', filename='Book.jpg') }}" alt="Book" style="width: 600px; height: auto;">
+        <p>Explore and review your favorite books!</p>
+        <p>Already have an account?</p>
+        <a href="{{ url_for('login') }}">Log in</a>
+        <p>or</p>
+        <a href="{{ url_for('register') }}">Register</a>
+    </div>
+</body>
+</html>

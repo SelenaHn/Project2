@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Book Reviews{% endblock %}
+{% block content %}
+    <h1>Book Reviews</h1>
+    {% if reviews %}
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Rating</th>
+                <th>Comment</th>
+            </tr>
+            {% for review in reviews %}
+                <tr>
+                    <td>{{ review[2] }}</td> <!-- Index 2 corresponds to user_id -->
+                    <td>{{ review[3] }}</td> <!-- Index 3 corresponds to rating -->
+                    <td>{{ review[4] }}</td> <!-- Index 4 corresponds to comment -->
+                </tr>
+            {% endfor %}
+        </table>
+        <br> <!-- Add extra space between the table and the link -->
+        
+    {% else %}
+        <p>No reviews available.</p>
+    {% endif %}
+
+    <br>
+    <form action="{{ url_for('logout') }}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+{% endblock %}

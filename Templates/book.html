@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.title }} - Book Details</title>
+</head>
+<body>
+    <!-- Display book details here -->
+    <h1>{{ book.title }}</h1>
+    <p>Author: {{ book.author }}</p>
+    <p>Publication Year: {{ book.publication_year }}</p>
+    <p>ISBN: {{ book.isbn }}</p>
+    <!-- Add more details as needed -->
+
+    <!-- Display reviews if available -->
+    <h2>Reviews</h2>
+    {% for review in book.reviews %}
+        <p>{{ review.text }}</p>
+        <!-- Add more details as needed -->
+    {% endfor %}
+
+    <!-- Add a form to submit a new review -->
+    <form method="POST" action="{{ url_for('submit_review', book_id=book.id) }}">
+        <label for="review_text">Write a Review:</label>
+        <textarea id="review_text" name="review_text" required></textarea>
+        <br>
+        <button type="submit">Submit Review</button>
+    </form>
+</body>
+</html>
